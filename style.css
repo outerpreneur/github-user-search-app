@@ -108,6 +108,7 @@ header {
   font-size: 18px;
   color: var(--light-blue-gray);
   cursor: pointer;
+  background-color: transparent;
 }
 
 .search-box input::placeholder {
@@ -234,4 +235,68 @@ header {
   .stats p {
     font-size: 14px;
   }
+}
+
+/* theme */
+
+.switch {
+  display: flex;
+  gap: 15px;
+  align-items: center;
+  cursor: pointer;
+  text-transform: uppercase;
+  color: var(--light-blue-gray);
+}
+
+.hidden {
+  display: none;
+}
+
+.switch-light {
+  color: white;
+}
+
+/* Light Mode Styles
+.light-mode {
+  --text-color: var(--dark-gray);
+  --bg-color: var(--bg-light-white);
+  /* ... other light mode styles ... */
+/* } */
+
+/* Dark Mode Styles */
+/* .dark-mode {
+  --text-color: var(--dark-white);
+  --bg-color: var(--dark-black-gray); */
+/* ... other dark mode styles ... */
+/* } */
+
+/* Shared Styles */
+/* body {
+  color: var(--text-color);
+  background-color: var(--bg-color); */
+/* ... other shared styles ... */
+/* } */
+
+/* Shared switch styles */
+.switch-container {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  text-transform: uppercase;
+  color: var(--light-blue-gray);
+  transition: color 0.3s;
+}
+
+.switch-container:hover {
+  color: var(--light-blue);
+}
+
+/* Dark mode switch */
+.dark-mode-switch {
+  color: var(--dark-blue);
+}
+
+/* Light mode switch */
+.light-mode-switch {
+  color: var(--light-blue-gray);
 }
