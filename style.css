@@ -1,0 +1,137 @@
+:root {
+  /* light mode */
+  --light-blue: #0079ff;
+  --light-gray: #697c9a;
+  --light-blue-gray: #4b6a9b;
+  --light-dark-gray-blue: #2b3442;
+  --light-gray-white: #f6f8ff;
+  --light-white: #fefefe;
+
+  /* dark mode */
+  --dark-blue: #0079ff;
+  --dark-gray: #1e2a47;
+  --dark-black-gray: #141d2f;
+  --dark-white: #ffffff;
+
+  /* typography */
+  --space-mono: "Space Mono", monospace;
+}
+
+/* reset */
+
+body,
+h1,
+h2,
+h3,
+h4,
+p,
+li,
+span,
+figure,
+figcaption,
+blockquote,
+dl,
+dd {
+  margin: 0;
+}
+
+/* structure */
+
+body {
+  background-color: var(--light-gray-white);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  font-family: var(--space-mono);
+}
+
+.container {
+  width: 730px;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5em;
+}
+
+.container > div {
+  border-radius: 10px;
+}
+
+header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.search-box {
+  background-color: var(--light-white);
+  display: grid;
+  grid-template-columns: 1fr 8fr 2fr;
+  padding: 1.5em;
+  column-gap: 1em;
+}
+
+.profile-card {
+  background-color: var(--light-white);
+}
+
+/* header */
+
+/* search box */
+
+.magnifier {
+  justify-self: center;
+  align-self: center;
+}
+
+.search-box input {
+  border: none;
+  font-size: 18px;
+  color: var(--light-blue-gray);
+  cursor: pointer;
+}
+
+.search-box input::placeholder {
+  font-size: 18px;
+  color: var(--light-blue-gray);
+}
+
+.search-box button {
+  background-color: var(--light-blue);
+  border: none;
+  padding: 1em 2em;
+  color: white;
+  border-radius: 10px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+/* profile-card */
+
+.profile-card {
+  display: grid;
+  grid-template-columns: 2fr 4fr;
+  padding: 3em;
+}
+
+.profile-column {
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
+}
+
+.basic-info {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+}
+
+.stats {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.social-media {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+}
