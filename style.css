@@ -167,7 +167,7 @@ header {
 .stats {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  background-color: var(--light-gray-white);
+  background-color: var(--background-color);
   padding: 0.5em 2em;
   border-radius: 10px;
 }
