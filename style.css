@@ -4,8 +4,8 @@
   --light-gray: #697c9a;
   --light-blue-gray: #4b6a9b;
   --light-dark-gray-blue: #2b3442;
-  --light-gray-white: #f6f8ff;
-  --light-white: #fefefe;
+  --background-color: #f6f8ff;
+  --bg-light-white: #fefefe;
 
   /* dark mode */
   --dark-blue: #0079ff;
@@ -35,10 +35,25 @@ dd {
   margin: 0;
 }
 
+/* theme */
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background-color: #141d2f;
+    --text-color: white;
+    --bg-light-white: #1e2a47;
+    --light-gray-white: #141d2f;
+  }
+
+  html {
+    color-scheme: dark;
+  }
+}
+
 /* structure */
 
 body {
-  background-color: var(--light-gray-white);
+  background-color: var(--background-color);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -64,7 +79,7 @@ header {
 }
 
 .search-box {
-  background-color: var(--light-white);
+  background-color: var(--bg-light-white);
   display: grid;
   grid-template-columns: 1fr 8fr 2fr;
   padding: 1.5em;
@@ -72,7 +87,7 @@ header {
 }
 
 .profile-card {
-  background-color: var(--light-white);
+  background-color: var(--bg-light-white);
 }
 
 /* header */
@@ -82,6 +97,10 @@ header {
 .magnifier {
   justify-self: center;
   align-self: center;
+}
+
+.switch-container {
+  cursor: pointer;
 }
 
 .search-box input {
@@ -106,6 +125,10 @@ header {
   cursor: pointer;
 }
 
+.search-box button:hover {
+  background-color: #60abff;
+}
+
 /* profile-card */
 
 .profile-card {
@@ -117,21 +140,98 @@ header {
 .profile-column {
   display: flex;
   flex-direction: column;
-  gap: 1em;
+  gap: 1.3em;
 }
 
 .basic-info {
   display: flex;
-  align-items: flex-start;
   justify-content: space-between;
+  align-items: baseline;
+}
+.name {
+  font-size: 26px;
+}
+
+.handle {
+  color: var(--light-blue);
+}
+
+.date {
+  color: var(--light-blue-gray);
+}
+
+.bio-description {
+  color: var(--light-blue-gray);
 }
 
 .stats {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
+  background-color: var(--light-gray-white);
+  padding: 0.5em 2em;
+  border-radius: 10px;
+}
+
+.stats span {
+  font-weight: bold;
+  font-size: 13px;
+}
+
+.stats {
+  font-size: 22px;
+  font-weight: bold;
 }
 
 .social-media {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
+  gap: 1em;
+}
+
+.social-media .value {
+  font-size: 15px;
+}
+
+@media screen and (max-width: 1000px) {
+  .container {
+    width: 75%;
+  }
+  .profile-card {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .container {
+    width: 95%;
+    justify-content: space-around;
+  }
+  .search-box {
+    gap: 0.5em;
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+
+  .search-box button {
+    font-size: 14px;
+    padding: 2em 2em;
+  }
+
+  .profile-card {
+    grid-template-columns: 1fr;
+  }
+  .social-media {
+    grid-template-columns: 1fr;
+  }
+  .profile-card {
+    padding: 1.5em;
+  }
+  .basic-info {
+    flex-direction: column;
+  }
+  .stats span {
+    font-size: 10px;
+  }
+  .stats p {
+    font-size: 14px;
+  }
 }
