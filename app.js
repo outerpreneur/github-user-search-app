@@ -27,3 +27,5 @@ document.addEventListener("DOMContentLoaded", function () {
     whiteModeButton.classList.add("hidden");
   });
 });
+
+console.log(window.matchMedia);
