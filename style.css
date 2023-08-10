@@ -75,7 +75,7 @@ header {
 .search-box {
   background-color: var(--container-boxes);
   display: grid;
-  grid-template-columns: 1fr 8fr 2fr;
+  grid-template-columns: 1fr 4fr 3fr;
   padding: 1.5em;
   column-gap: 1em;
 }
@@ -114,6 +114,17 @@ header h1 {
   color: var(--text-color);
 }
 
+.search-area {
+  display: flex;
+  gap: 15px;
+}
+
+.no-results {
+  color: #f74646;
+  align-self: center;
+  display: none;
+}
+
 .search-box button {
   background-color: var(--accent);
   border: none;
@@ -122,6 +133,7 @@ header h1 {
   border-radius: 10px;
   font-size: 16px;
   cursor: pointer;
+  margin-left: auto;
 }
 
 .search-box button:hover {
@@ -140,6 +152,7 @@ header h1 {
 .avatar {
   width: 100%;
   border-radius: 50%;
+  max-width: 200px;
 }
 
 .profile-column {
@@ -207,7 +220,7 @@ header h1 {
     width: 80%;
   }
   .profile-card {
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 2fr 5fr;
   }
 }
 

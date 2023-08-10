@@ -50,6 +50,23 @@ if (prefersDarkMode) {
       searchBox.style.backgroundColor = "#fefefe";
       profileCard.style.backgroundColor = "#fefefe";
       stats.style.backgroundColor = "#f6f8ff";
+      headerH1.style.color = "black";
+      userName.style.color = "black";
+      bioDescription.style.color = "black";
+      profileCard.style.color = "black";
+      locationTag.style.color = "black";
+      companyTag.style.color = "black";
+      websiteTag.style.color = "black";
+      twitterTag.style.color = "black";
+      userDate.style.color = "black";
+      inputUser.style.color = "black";
+      statsSpan.forEach((span) => {
+        span.style.color = "black";
+      });
+      completeDate.style.color = "black";
+      reposNumber.style.color = "black";
+      followingNumber.style.color = "black";
+      followersNumber.style.color = "black";
       darkModeButton.classList.remove("hidden");
       whiteModeButton.classList.add("hidden");
     });
@@ -89,6 +106,23 @@ if (prefersDarkMode) {
       searchBox.style.backgroundColor = "#fefefe";
       profileCard.style.backgroundColor = "#fefefe";
       stats.style.backgroundColor = "#f6f8ff";
+      headerH1.style.color = "black";
+      userName.style.color = "black";
+      bioDescription.style.color = "black";
+      profileCard.style.color = "black";
+      locationTag.style.color = "black";
+      companyTag.style.color = "black";
+      websiteTag.style.color = "black";
+      twitterTag.style.color = "black";
+      userDate.style.color = "black";
+      inputUser.style.color = "black";
+      statsSpan.forEach((span) => {
+        span.style.color = "black";
+      });
+      completeDate.style.color = "black";
+      reposNumber.style.color = "black";
+      followingNumber.style.color = "black";
+      followersNumber.style.color = "black";
       darkModeButton.classList.remove("hidden");
       whiteModeButton.classList.add("hidden");
     });
@@ -113,6 +147,7 @@ const twitterTag = document.querySelector(".twitter");
 const websiteTag = document.querySelector(".website");
 const companyTag = document.querySelector(".company");
 const statsSpan = document.querySelectorAll(".stats span");
+const noResults = document.querySelector(".no-results");
 
 searchButton.addEventListener("click", async () => {
   const inputUserValue = inputUser.value;
@@ -124,24 +159,29 @@ searchButton.addEventListener("click", async () => {
     const response = await fetch(userUrl);
     const data = await response.json();
     console.log(data);
-    imageAvatar.src = data.avatar_url;
-    userName.innerText = capitalizeFirstLetter(data.login);
-    userHandle.innerText = "@" + data.login;
-    userDate.innerText = " " + formatDate(data.created_at);
-    reposNumber.innerText = data.public_repos;
-    followersNumber.innerText = data.followers;
-    followingNumber.innerText = data.following;
-    locationTag.innerText = data.location;
-    twitterTag.innerText = data.twitter_username;
-    websiteTag.innerText = data.organizations_url;
-    companyTag.innerText = data.company;
-    if (data.bio == null) {
-      bioDescription.innerText =
-        "Lorem karisious ipsum dolor sit amet, consectetuer adipiscing elit. Donec odio. Quisque volutpat mattis eros.";
+    if (data.message === "Not Found") {
+      noResults.style.display = "block";
     } else {
-      bioDescription.innerText = data.bio;
+      noResults.style.display = "none";
+      imageAvatar.src = data.avatar_url;
+      userName.innerText = capitalizeFirstLetter(data.login);
+      userHandle.innerText = "@" + data.login;
+      userDate.innerText = " " + formatDate(data.created_at);
+      reposNumber.innerText = data.public_repos;
+      followersNumber.innerText = data.followers;
+      followingNumber.innerText = data.following;
+      locationTag.innerText = data.location;
+      twitterTag.innerText = data.twitter_username;
+      websiteTag.innerText = data.organizations_url;
+      companyTag.innerText = data.company;
+      if (data.bio == null) {
+        bioDescription.innerText =
+          "Lorem karisious ipsum dolor sit amet, consectetuer adipiscing elit. Donec odio. Quisque volutpat mattis eros.";
+      } else {
+        bioDescription.innerText = data.bio;
+      }
+      inputUser.value = "";
     }
-    inputUser.value = "";
   } catch (error) {
     console.error("An error occurred:", error);
     adviceText.innerText = error;
@@ -165,4 +205,6 @@ function capitalizeFirstLetter(str) {
   return str.charAt(0).toUpperCase() + str.slice(1);
 }
 
-function searchUser(user) {}
+// SEARCH RESULTS
+console.log(data.message);
+function searchResults(result) {}
