@@ -31,6 +31,7 @@ if (prefersDarkMode) {
       statsSpan.forEach((span) => {
         span.style.color = "#fefefe";
       });
+
       completeDate.style.color = "#fefefe";
       reposNumber.style.color = "#fefefe";
       followingNumber.style.color = "#fefefe";
