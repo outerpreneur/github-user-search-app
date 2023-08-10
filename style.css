@@ -134,8 +134,14 @@ header {
 
 .profile-card {
   display: grid;
-  grid-template-columns: 2fr 4fr;
+  grid-template-columns: 2fr 5fr;
   padding: 3em;
+  gap: 2em;
+}
+
+.avatar {
+  width: 100%;
+  border-radius: 50%;
 }
 
 .profile-column {
@@ -190,12 +196,21 @@ header {
 }
 
 .social-media .value {
-  font-size: 15px;
+  font-size: 13px;
 }
 
 @media screen and (max-width: 1000px) {
   .container {
-    width: 75%;
+    width: 80%;
+  }
+  .profile-card {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media screen and (max-width: 800px) {
+  .container {
+    width: 90%;
   }
   .profile-card {
     grid-template-columns: 1fr;
@@ -213,8 +228,8 @@ header {
   }
 
   .search-box button {
-    font-size: 14px;
-    padding: 1.5em 1em;
+    font-size: 12px;
+    padding: 1.5em 0.8em;
   }
 
   .profile-card {
