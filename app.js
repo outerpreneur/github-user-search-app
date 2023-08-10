@@ -1,46 +1,97 @@
 // DARK / LIGHT THEME
 
+const darkModeButton = document.getElementById("dark-mode");
+const whiteModeButton = document.getElementById("white-mode");
+const searchBox = document.querySelector(".search-box");
+const profileCard = document.querySelector(".profile-card");
+const stats = document.querySelector(".stats");
+const body = document.body;
+
 const prefersDarkMode = window.matchMedia(
   "(prefers-color-scheme: dark)"
 ).matches;
 
+const headerH1 = document.querySelector("h1");
+
 if (prefersDarkMode) {
   // Code for dark mode
-  console.log("Dark mode is preferred.");
-} else {
-  // Code for light mode
-  console.log("Light mode is preferred.");
-}
-
-document.addEventListener("DOMContentLoaded", function () {
-  const darkModeButton = document.getElementById("dark-mode");
-  const whiteModeButton = document.getElementById("white-mode");
-  const searchBox = document.querySelector(".search-box");
-  const profileCard = document.querySelector(".profile-card");
-  const stats = document.querySelector(".stats");
-  const body = document.body;
-
-  darkModeButton.addEventListener("click", function () {
-    body.style.color = "white";
-    body.style.backgroundColor = "#141d2f";
-    searchBox.style.backgroundColor = "#1E2A47";
-    profileCard.style.backgroundColor = "#1E2A47";
-    stats.style.backgroundColor = "#141d2f";
+  document.addEventListener("DOMContentLoaded", function () {
     darkModeButton.classList.add("hidden");
     whiteModeButton.classList.remove("hidden");
-  });
+    darkModeButton.addEventListener("click", function () {
+      headerH1.style.color = "#fefefe";
+      userName.style.color = "#fefefe";
+      bioDescription.style.color = "#fefefe";
+      profileCard.style.color = "#fefefe";
+      locationTag.style.color = "#fefefe";
+      companyTag.style.color = "#fefefe";
+      websiteTag.style.color = "#fefefe";
+      twitterTag.style.color = "#fefefe";
+      userDate.style.color = "#fefefe";
+      statsSpan.forEach((span) => {
+        span.style.color = "#fefefe";
+      });
+      completeDate.style.color = "#fefefe";
+      reposNumber.style.color = "#fefefe";
+      followingNumber.style.color = "#fefefe";
+      followersNumber.style.color = "#fefefe";
+      body.style.backgroundColor = "#141d2f";
+      searchBox.style.backgroundColor = "#1E2A47";
+      profileCard.style.backgroundColor = "#1E2A47";
+      stats.style.backgroundColor = "#141d2f";
+      darkModeButton.classList.add("hidden");
+      whiteModeButton.classList.remove("hidden");
+    });
 
-  whiteModeButton.addEventListener("click", function () {
-    body.style.colorScheme = "white";
-    body.style.color = "black";
-    body.style.backgroundColor = "var(--background-color";
-    searchBox.style.backgroundColor = "var(--dark-white)";
-    profileCard.style.backgroundColor = "var(--dark-white)";
-    stats.style.backgroundColor = "var(--background-color";
-    darkModeButton.classList.remove("hidden");
-    whiteModeButton.classList.add("hidden");
+    whiteModeButton.addEventListener("click", function () {
+      body.style.color = "black";
+      body.style.backgroundColor = "#f6f8ff";
+      searchBox.style.backgroundColor = "#fefefe";
+      profileCard.style.backgroundColor = "#fefefe";
+      stats.style.backgroundColor = "#f6f8ff";
+      darkModeButton.classList.remove("hidden");
+      whiteModeButton.classList.add("hidden");
+    });
   });
-});
+} else {
+  // Code for light mode
+  document.addEventListener("DOMContentLoaded", function () {
+    darkModeButton.addEventListener("click", function () {
+      headerH1.style.color = "#fefefe";
+      userName.style.color = "#fefefe";
+      bioDescription.style.color = "#fefefe";
+      profileCard.style.color = "#fefefe";
+      locationTag.style.color = "#fefefe";
+      companyTag.style.color = "#fefefe";
+      websiteTag.style.color = "#fefefe";
+      twitterTag.style.color = "#fefefe";
+      userDate.style.color = "#fefefe";
+      statsSpan.forEach((span) => {
+        span.style.color = "#fefefe";
+      });
+      completeDate.style.color = "#fefefe";
+      reposNumber.style.color = "#fefefe";
+      followingNumber.style.color = "#fefefe";
+      followersNumber.style.color = "#fefefe";
+      body.style.backgroundColor = "#141d2f";
+      searchBox.style.backgroundColor = "#1E2A47";
+      profileCard.style.backgroundColor = "#1E2A47";
+      stats.style.backgroundColor = "#141d2f";
+      darkModeButton.classList.add("hidden");
+      whiteModeButton.classList.remove("hidden");
+    });
+
+    whiteModeButton.addEventListener("click", function () {
+      body.style.color = "black";
+      body.style.backgroundColor = "#f6f8ff";
+      searchBox.style.backgroundColor = "#fefefe";
+      profileCard.style.backgroundColor = "#fefefe";
+      stats.style.backgroundColor = "#f6f8ff";
+      darkModeButton.classList.remove("hidden");
+      whiteModeButton.classList.add("hidden");
+    });
+  });
+}
 
 // UPDATE USER
 
@@ -49,6 +100,7 @@ const searchButton = document.querySelector(".search-box button");
 const imageAvatar = document.querySelector(".avatar");
 const userName = document.querySelector(".name");
 const userHandle = document.querySelector(".handle");
+const completeDate = document.querySelector(".date");
 const userDate = document.querySelector(".date-join");
 const bioDescription = document.querySelector(".bio-description");
 const reposNumber = document.querySelector(".repos-number");
@@ -58,6 +110,7 @@ const locationTag = document.querySelector(".location");
 const twitterTag = document.querySelector(".twitter");
 const websiteTag = document.querySelector(".website");
 const companyTag = document.querySelector(".company");
+const statsSpan = document.querySelectorAll(".stats span");
 
 searchButton.addEventListener("click", async () => {
   const inputUserValue = inputUser.value;

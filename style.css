@@ -1,18 +1,26 @@
+/* theme */
+
 :root {
-  /* light mode */
-  --light-blue: #0079ff;
-  --light-gray: #697c9a;
-  --light-blue-gray: #4b6a9b;
-  --light-dark-gray-blue: #2b3442;
   --background-color: #f6f8ff;
-  --bg-light-white: #fefefe;
+  --text-color: black;
+  --container-boxes: #fefefe;
+  --accent: #0079ff;
+  --light-gray: #697c9a;
+  --light-dark-gray-blue: #2b3442;
+  --content-text: #141d2f;
+}
 
-  /* dark mode */
-  --dark-blue: #0079ff;
-  --dark-gray: #1e2a47;
-  --dark-black-gray: #141d2f;
-  --dark-white: #ffffff;
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background-color: #141d2f;
+    --text-color: white;
+    --container-boxes: #1e2a47;
+    --accent: #0079ff;
+    --content-text: #fefefe;
+  }
+}
 
+:root {
   /* typography */
   --space-mono: "Space Mono", monospace;
 }
@@ -35,27 +43,13 @@ dd {
   margin: 0;
 }
 
-/* theme */
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background-color: #141d2f;
-    --text-color: white;
-    --bg-light-white: #1e2a47;
-    --light-gray-white: #141d2f;
-  }
-
-  html {
-    color-scheme: dark;
-  }
-}
-
 /* structure */
 
 body {
   background-color: var(--background-color);
   display: flex;
   justify-content: center;
+  color: var(--text-color);
   align-items: center;
   height: 100vh;
   font-family: var(--space-mono);
@@ -79,7 +73,7 @@ header {
 }
 
 .search-box {
-  background-color: var(--bg-light-white);
+  background-color: var(--container-boxes);
   display: grid;
   grid-template-columns: 1fr 8fr 2fr;
   padding: 1.5em;
@@ -87,10 +81,14 @@ header {
 }
 
 .profile-card {
-  background-color: var(--bg-light-white);
+  background-color: var(--container-boxes);
 }
 
 /* header */
+
+header h1 {
+  color: var(--text-color);
+}
 
 /* search box */
 
@@ -113,11 +111,11 @@ header {
 
 .search-box input::placeholder {
   font-size: 18px;
-  color: var(--light-blue-gray);
+  color: var(--text-color);
 }
 
 .search-box button {
-  background-color: var(--light-blue);
+  background-color: var(--accent);
   border: none;
   padding: 1em 2em;
   color: white;
@@ -157,18 +155,20 @@ header {
 }
 .name {
   font-size: 26px;
+  color: var(--text-color);
 }
 
 .handle {
-  color: var(--light-blue);
+  color: var(--accent);
 }
 
 .date {
   color: var(--light-blue-gray);
+  color: var(--text-color);
 }
 
 .bio-description {
-  color: var(--light-blue-gray);
+  color: var(--content-text);
 }
 
 .stats {
@@ -182,11 +182,13 @@ header {
 .stats span {
   font-weight: bold;
   font-size: 13px;
+  color: var(--text-color);
 }
 
 .stats {
   font-size: 22px;
   font-weight: bold;
+  color: var(--text-color);
 }
 
 .social-media {
@@ -197,6 +199,7 @@ header {
 
 .social-media .value {
   font-size: 13px;
+  color: var(--text-color);
 }
 
 @media screen and (max-width: 1000px) {
