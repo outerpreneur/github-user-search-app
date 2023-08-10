@@ -67,6 +67,7 @@ if (prefersDarkMode) {
       websiteTag.style.color = "#fefefe";
       twitterTag.style.color = "#fefefe";
       userDate.style.color = "#fefefe";
+      inputUser.style.color = "#fefefe";
       statsSpan.forEach((span) => {
         span.style.color = "#fefefe";
       });
